@@ -165,7 +165,9 @@ void PipelineCache::RefreshGraphicsKey() {
 
         // just to prevent crashes
         if (bininfo->shader_hash == 0x8ccd4c7 || bininfo->shader_hash == 3273382176 || bininfo->shader_hash == 1253917491 || bininfo->shader_hash == 3568414570 || bininfo->shader_hash == 886182625 || bininfo->shader_hash == 2876255299 || bininfo->shader_hash == 2153234908 || bininfo->shader_hash == 0xc0cbc309 || bininfo->shader_hash == 0xe0305cef || bininfo->shader_hash == 2251599991) {
-                return false;
+            key.stage_hashes[i] = 0;
+            infos[i] = nullptr;
+            continue;
         }
       
         const auto stage = Shader::Stage{i};
